@@ -4,14 +4,14 @@ public class Bombilla {
 
 	private boolean estado;
 
-	private static boolean general = false;
+	static boolean interruptorGeneral = false;
 
 	public Bombilla() {
 		this.estado = false;
 	}
 
 	public void verEstado() {
-		if (estado && general) {
+		if (estado && interruptorGeneral) {
 			System.out.println("Encendida");
 		} else {
 			System.out.println("Apagada");
@@ -23,6 +23,14 @@ public class Bombilla {
 			estado = false;
 		} else {
 			estado = true;
+		}
+	}
+
+	public static void interruptorGeneral() {
+		if (Bombilla.interruptorGeneral == false) {
+			Bombilla.interruptorGeneral = true;
+		} else {
+			Bombilla.interruptorGeneral = false;
 		}
 	}
 
